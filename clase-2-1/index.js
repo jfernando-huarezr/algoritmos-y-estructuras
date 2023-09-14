@@ -1,8 +1,8 @@
 
-import {saludar, despedir} from './utils/library1.js' /*Importar elementos independientemente */
+import {saludar, despedir} from './src/utils/library1.js' /*Importar elementos independientemente */
 
-import * as lib2 from './library2.js' /*Importar elementos como paquetes */
-import {Person} from './person.js' /*Importar clases */
+import * as lib2 from './src/utils/library2.js' /*Importar elementos como paquetes */
+import {Person} from './src/utils/person.js' /*Importar clases */
 
 // con esto podemos importar otro archivo javascript, 
 //para poder importar como module, en el pacakge json debemos poner "type" : "module", si no, no funcionara

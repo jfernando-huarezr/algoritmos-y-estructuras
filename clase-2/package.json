@@ -1,0 +1,12 @@
+{
+  "name": "clase-2-1",
+  "version": "1.0.0",
+  "description": "ejemplo de nodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "jfernand",
+  "license": "ISC",
+  "type" : "module"
+}

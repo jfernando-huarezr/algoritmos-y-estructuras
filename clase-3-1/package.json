@@ -8,5 +8,8 @@
   },
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "ui-game-console": "^1.0.1"
+  }
 }

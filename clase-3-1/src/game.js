@@ -1,8 +1,8 @@
-import Item from './item.js'
-import Map from './map.js'
-import Player from './player.js'
+import {Item} from './item.js'
+import {Map} from './map.js'
+import {Player} from './player.js'
 
-export default class Game {
+export class Game {
   constructor() {
     this.map = new Map()
     this.player = new Player()

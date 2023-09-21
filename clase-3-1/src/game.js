@@ -7,6 +7,10 @@ export class Game {
     this.map = new Map()
     this.player = new Player()
     this.item = new Item()
+
+    setInterval(() => {
+        this.draw()
+    },33)
   }
 
   draw() {

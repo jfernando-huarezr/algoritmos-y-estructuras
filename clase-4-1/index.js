@@ -1,3 +1,5 @@
+import * as sortLib from './src/sort.js'
+
 let array = [40, 100, 1, 5, 25, 10]
 
 let persons = [ 
@@ -54,3 +56,5 @@ function findMaxObject(obj) {
 }
 
 console.log(findMaxObject(persons))
+
+console.log(sortLib.bubbleSort(array))

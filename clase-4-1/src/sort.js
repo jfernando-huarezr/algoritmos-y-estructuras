@@ -1,5 +1,5 @@
 export function bubbleSort (arr) {
-    const sortedArray = arr
+    const sortedArray = [...arr]
     let aux=0
     for (let i = 0; i < sortedArray.length; i++) {
         for (let j = 0; j<sortedArray.length - (i+1); j++) {
@@ -12,4 +12,4 @@ export function bubbleSort (arr) {
     }
 
     return sortedArray
-}
+} //complejidad n^2, no es muy eficiente y es el ultimo de los algoritmos de ordenamiento

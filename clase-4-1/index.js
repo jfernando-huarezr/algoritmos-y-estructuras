@@ -58,3 +58,63 @@ function findMaxObject(obj) {
 console.log(findMaxObject(persons))
 
 console.log(sortLib.bubbleSort(array))
+
+
+//arreglos bidimensionales
+let numbers = [
+    [5,2,8],
+    [9,1,4],
+    [6,3,7]
+]
+
+function flat(matrix) {
+    //return matrix.flat()
+    let result = []
+    for (let row=0; row <matrix.length; row++) {
+        for (let col=0; col < matrix[row].length; col++) {
+            result.push(matrix[row][col])
+        }
+    }
+
+    return result
+}
+
+function unflat(array, size) {
+    console.log("***********************************")
+    let result = []
+    for (let i = 0; i < array.length; i=i+size) {
+        let aux = []
+
+        for (let j = 0; j < size; j++) {            
+            aux.push(array[i+j])            
+        }
+
+        result.push(aux)
+    }
+
+    return result
+}
+
+console.log(unflat(array, 3))
+
+//otra forma usando slice en lugar de otro for
+/*
+
+function unflat(array, size) {
+  let result = []
+  for (let i = 0; i < array.length; i += size) {
+    result.push(array.slice(i, i + size))
+  }
+  return result
+}
+
+*/
+
+
+let flatted = flat(numbers)
+
+flatted = sortLib.bubbleSort(flatted)
+
+let unflatted = unflat(flatted, 3)
+
+console.log(unflatted)

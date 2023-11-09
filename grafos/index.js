@@ -20,4 +20,4 @@ graph.addConnection(3, 5)
 
 graph.print()
 // console.log(graph.isConnected(3, 2))
-console.log(graph.getNeighbors(2))
+// console.log(graph.getNeighbors(2))

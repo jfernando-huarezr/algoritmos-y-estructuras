@@ -2,41 +2,42 @@ export default class Graph {
     constructor() {
       // lista de nodos
       this.nodes = []
-      // lista de aristas
-      this.edges = []
+      // lista de adyacencias
+      this.adjacencies = []
     }
   
     addNode(value) {
-      // agrega el 
+      // se agrega el nuevo nodo a la lista de nodos
       this.nodes.push(value)
+      // se agrega un arreglo en 'adjacencies' para almacenar a los vecinos del nuevo nodo
+      this.adjacencies.push([])
     }
   
     addConnection(i, j) {
-      this.edges.push({ start: i, end: j })
+      // agregar a j a la lista de vecinos de i
+      this.adjacencies[i].push(j)
+      // agregar a i a la lista de vecinos de j
+      this.adjacencies[j].push(i)
     }
   
     isConnected(i, j) {
-      for (let edge of this.edges) {
-        if (edge.start === i && edge.end === j) return true
-        else if (edge.start === j && edge.end === i) return true
-      }
-      return false
+      // se pregunta si j se encuentra entre los vecinos de i
+      return this.adjacencies[i].includes(j)
     }
   
     getNeighbors(index) {
-      let neighbors = []
-      for (let edge of this.edges) {
-        if (edge.start === index) neighbors.push(edge.end)
-        else if (edge.end === index) neighbors.push(edge.start)
-      }
-      return neighbors
+      // se retorna los adyacentes a index
+      return this.adjacencies[index]
     }
   
     print() {
+      // se imprimen los nodos
       console.log('nodos:')
       this.nodes.forEach((node, i) => {
         console.log(i + ': ' + node)
       })
+  
+      // se imprimen las conexiones
       console.log('conexiones:')
       for (let i = 0; i < this.nodes.length; i++) {
         for (let j = i + 1; j < this.nodes.length; j++) {

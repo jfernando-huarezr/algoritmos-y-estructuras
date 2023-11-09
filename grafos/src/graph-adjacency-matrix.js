@@ -18,20 +18,31 @@ export default class Graph {
       this.matrix.push(newRow)
     }
   
-    addConnection(i, j) {
-      this.matrix[i][j] = 1
-      this.matrix[j][i] = 1
+    addConnection(i, j, weight = 1) {
+      // se agrega la conexión entre i,j y j,i
+      this.matrix[i][j] = weight
+      this.matrix[j][i] = weight
+    }
+  
+    getWeight(i, j) {
+      // se consulta el peso en la matriz
+      return this.matrix[i][j]
     }
   
     isConnected(i, j) {
-      return this.matrix[i][j] === 1
+      // si el peso es distinto a cero, hay conexión
+      return this.matrix[i][j] !== 0
     }
   
     getNeighbors(index) {
+      // inicializa un arreglo de vecinos
       let neighbors = []
+      // se recorre la fila 'index' buscando valores distintos a cero
       this.matrix[index].forEach((value, i) => {
-        if (value === 1) neighbors.push(i)
+        // y si se encuentra, se almacena el nodo como vecino
+        if (value !== 0) neighbors.push(i)
       })
+      // se retorna la lista de vecinos encontrados
       return neighbors
     }
   
@@ -47,7 +58,7 @@ export default class Graph {
       for (let i = 0; i < this.nodes.length; i++) {
         for (let j = i + 1; j < this.nodes.length; j++) {
           if (this.isConnected(i, j)) {
-            console.log(i + ' --- ' + j)
+            console.log(i + ' --- ' + j + ' : ' + this.getWeight(i, j))
           }
         }
       }

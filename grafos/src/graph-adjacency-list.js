@@ -13,21 +13,32 @@ export default class Graph {
       this.adjacencies.push([])
     }
   
-    addConnection(i, j) {
+    addConnection(i, j, weight = 1) {
       // agregar a j a la lista de vecinos de i
-      this.adjacencies[i].push(j)
+      this.adjacencies[i].push({ index: j, weight: weight })
       // agregar a i a la lista de vecinos de j
-      this.adjacencies[j].push(i)
+      this.adjacencies[j].push({ index: i, weight: weight })
+    }
+  
+    getWeight(i, j) {
+      // se recorre la lista de vecinos de i
+      for (let neighbor of this.adjacencies[i]) {
+        if (neighbor.index === j) return neighbor.weight
+      }
+      return null
     }
   
     isConnected(i, j) {
       // se pregunta si j se encuentra entre los vecinos de i
-      return this.adjacencies[i].includes(j)
+      for (let neighbor of this.adjacencies[i]) {
+        if (neighbor.index === j) return true
+      }
+      return false
     }
   
     getNeighbors(index) {
       // se retorna los adyacentes a index
-      return this.adjacencies[index]
+      return this.adjacencies[index].map((neighbor) => neighbor.index)
     }
   
     print() {
@@ -42,7 +53,7 @@ export default class Graph {
       for (let i = 0; i < this.nodes.length; i++) {
         for (let j = i + 1; j < this.nodes.length; j++) {
           if (this.isConnected(i, j)) {
-            console.log(i + ' --- ' + j)
+            console.log(i + ' --- ' + j + ' : ' + this.getWeight(i, j))
           }
         }
       }

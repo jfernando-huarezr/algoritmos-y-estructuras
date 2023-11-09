@@ -11,9 +11,17 @@ export default class Graph {
       this.nodes.push(value)
     }
   
-    addConnection(i, j) {
+    addConnection(i, j, weight = 1) {
       // se agrega una nueva arista con los extremos i y j
-      this.edges.push({ start: i, end: j })
+      this.edges.push({ start: i, end: j, weight: weight })
+    }
+  
+    getWeight(i, j) {
+      for (let edge of this.edges) {
+        if (edge.start === i && edge.end === j) return edge.weight
+        else if (edge.start === j && edge.end === i) return edge.weight
+      }
+      return null
     }
   
     isConnected(i, j) {
@@ -55,7 +63,7 @@ export default class Graph {
       for (let i = 0; i < this.nodes.length; i++) {
         for (let j = i + 1; j < this.nodes.length; j++) {
           if (this.isConnected(i, j)) {
-            console.log(i + ' --- ' + j)
+            console.log(i + ' --- ' + j + ' : ' + this.getWeight(i, j))
           }
         }
       }

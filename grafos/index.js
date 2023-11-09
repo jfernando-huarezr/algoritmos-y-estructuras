@@ -1,5 +1,6 @@
 // import Graph from './src/graph-edge-list.js'
-import Graph from './src/graph-adjacency-list.js'
+// import Graph from './src/graph-adjacency-list.js'
+import Graph from './src/graph-adjacency-matrix'
 
 let graph = new Graph()
 

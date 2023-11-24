@@ -1,0 +1,13 @@
+{
+  "name": "grafos",
+  "version": "1.0.0",
+  "description": "grafo : coleccion de nodos y conexiones (lista de aristas/edge list)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+
+}

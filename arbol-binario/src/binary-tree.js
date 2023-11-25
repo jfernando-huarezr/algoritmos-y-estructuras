@@ -45,6 +45,9 @@ export default class BinaryTree {
     }
 
     print () {
+        if(!this.root) {
+            console.log("El arbol esta vacio")
+        }
         //algoritmo BFS
         //se encola el primer elemento
         let queue = [this.root]

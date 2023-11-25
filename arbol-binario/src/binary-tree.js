@@ -48,19 +48,41 @@ export default class BinaryTree {
         if(!this.root) {
             console.log("El arbol esta vacio")
         }
+
+
         //algoritmo BFS
         //se encola el primer elemento
-        let queue = [this.root]
-        //mientras la cola tenga elementos
-        while (queue.length > 0) {
-            //1. desencolar (dequeue -> shift)
-            let current = queue.shift()
-            //2. procesar: imprimir
-            console.log(current.value)
-            //3. encolar a los hijos, si existen
-            if (current.left) queue.push(current.left)
-            if (current.right) queue.push(current.right)
-        }       
+        // let queue = [this.root]
+        // //mientras la cola tenga elementos
+        // while (queue.length > 0) {
+        //     //1. desencolar (dequeue -> shift)
+        //     let current = queue.shift()
+        //     //2. procesar: imprimir
+        //     console.log(current.value)
+        //     //3. encolar a los hijos, si existen
+        //     if (current.left) queue.push(current.left)
+        //     if (current.right) queue.push(current.right)
+        // }  
+    
+        //recursive
+        this.printRecursive(this.root)
+    }
+
+    printRecursive(node) {
+        // //pre-order
+        // console.log(node.value)
+        // if(node.left) this.printRecursive(node.left)
+        // if(node.right) this.printRecursive(node.right)
+
+        // in-order
+        // if (node.left) this.printRecursive(node.left)
+        // console.log(node.value)
+        // if(node.right) this.printRecursive(node.right)
+
+        //post-order
+        // if (node.left) this.printRecursive(node.left)
+        // if(node.right) this.printRecursive(node.right)
+        // console.log(node.value)
     }
 
 
